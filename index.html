@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartes&Co - Atlas du Monde</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="home-page">
+
+<main class="home">
+
+    <section class="home-slide hero-slide">
+        <div class="home-card">
+            <img src="images/logo.png" alt="Cartes&Co - Atlas du Monde" class="home-logo">
+
+            <p class="intro-text">
+                Explorez les royaumes, cités, routes commerciales et terres connues du monde.
+            </p>
+
+            <a href="map.html" class="button">Ouvrir l'Atlas</a>
+        </div>
+    </section>
+
+    <section class="home-slide">
+        <div class="home-card">
+            <h2>Le Relais Cartes&Co</h2>
+
+            <img src="images/relais.png" alt="Relais Cartes&Co" class="section-image">
+
+            <p>
+                Le Relais Cartes&Co est un lieu pensé pour les voyageurs, explorateurs,
+                marchands et habitants en quête d'informations sur le monde.
+            </p>
+
+            <p>
+                On y consulte les cartes, on prépare les itinéraires, on échange des
+                nouvelles des routes et on découvre les lieux importants recensés par
+                Cartes&Co.
+            </p>
+
+            <p>
+                Vince y propose également ses services de cartographie. Cartes à la demande
+                possibles à l'atelier. Contactez Vince Lance, Mahyster (Twitter).
+            </p>
+        </div>
+    </section>
+
+    <section class="home-slide">
+        <div class="home-card">
+            <h2>Vince Lance</h2>
+
+            <img src="images/vince.png" alt="Vince Lance" class="section-image portrait-image">
+
+            <p>
+                Vince Lance est le fondateur de Cartes&Co. Cartographe, explorateur et
+                observateur du monde, il cherche à rendre les territoires plus lisibles
+                et accessibles à tous.
+            </p>
+
+            <p>
+                Cartographe dans l'ancien monde, il a malheureusement laissé tout ce qu'il
+                avait de plus cher derrière lui pour parcourir ces nouvelles terres. 
+            </p>
+
+            <p>
+                Son objectif est simple : aider le peuple à se repérer, découvrir de
+                nouveaux lieux et être une référence de la bonne humeur et de la dipomatie.
+            </p>
+        </div>
+    </section>
+
+    <section class="home-slide">
+        <div class="home-card">
+            <h2>Objectifs de l'Atlas</h2>
+
+            <ul class="objectives-list">
+                <li>Cartographier progressivement le monde connu.</li>
+                <li>Répertorier les villes, domaines et lieux importants.</li>
+                <li>Faciliter les trajets et les rencontres entre joueurs.</li>
+                <li>Préserver une trace visuelle de l'évolution du monde.</li>
+            </ul>
+
+            <a href="map.html" class="button">Explorer la carte</a>
+        </div>
+    </section>
+
+</main>
+
+<div class="page-indicators">
+
+    <div class="indicator-dot active" data-index="0"></div>
+    <div class="indicator-dot" data-index="1"></div>
+    <div class="indicator-dot" data-index="2"></div>
+    <div class="indicator-dot" data-index="3"></div>
+
+</div>
+
+<script>
+    const home = document.querySelector(".home");
+    const slides = document.querySelectorAll(".home-slide");
+    const dots = document.querySelectorAll(".indicator-dot");
+
+    let currentIndex = 0;
+
+    function updateIndicators() {
+
+        dots.forEach(dot => {
+            dot.classList.remove("active");
+        });
+
+        dots[currentIndex].classList.add("active");
+    }
+
+    function goToSlide(index) {
+
+        currentIndex = Math.max(
+            0,
+            Math.min(index, slides.length - 1)
+        );
+
+        home.scrollTo({
+            top: slides[currentIndex].offsetTop,
+            behavior: "smooth"
+        });
+
+        updateIndicators();
+    }
+
+    dots.forEach(dot => {
+
+        dot.addEventListener("click", () => {
+
+            const index = parseInt(
+                dot.dataset.index
+            );
+
+            goToSlide(index);
+        });
+
+    });
+
+    home.addEventListener("scroll", () => {
+
+        clearTimeout(home.scrollTimer);
+
+        home.scrollTimer = setTimeout(() => {
+
+            currentIndex = Math.round(
+                home.scrollTop / home.clientHeight
+            );
+
+            updateIndicators();
+
+        }, 100);
+
+    });
+
+    updateIndicators();
+</script>
+
+</body>
+</html>

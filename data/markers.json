@@ -1,0 +1,23 @@
+[
+    {
+        "id": "relais",
+        "name": "Relais Cartes&Co",
+        "description": "Point de départ des explorateurs.",
+        "x": 0.425,
+        "y": 0.598
+    },
+    {
+        "id": "belazur",
+        "name": "Domaine Belazur",
+        "description": "Famille noble de Karminea",
+        "x": 0.376,
+        "y": 0.827
+    },
+    {
+        "id": "casino",
+        "name": "Casino Montecarlo",
+        "description": "Casino, batîment central de l'amusement Karminéen",
+        "x": 0.356,
+        "y": 0.662
+    }
+]

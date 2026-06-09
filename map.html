@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartes&Co - Atlas du Monde</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <a href="index.html" class="logo-container">
+        <img
+            src="images/logo.png"
+            alt="Cartes&Co - Atlas du Monde"
+            class="logo-banner"
+        >
+    </a>
+
+    <div class="topbar-actions">
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Rechercher un lieu..."
+        >
+
+        <button id="fullscreenBtn">
+            Plein écran
+        </button>
+    </div>
+</header>
+
+<div id="map"></div>
+
+<div id="tooltip" class="tooltip"></div>
+
+<div id="infoPanel" class="info-panel">
+    <button id="closePanel">✕</button>
+
+    <h2 id="markerTitle"></h2>
+
+    <p id="markerDescription"></p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/5.0.1/openseadragon.min.js"></script>
+<script src="js/map.js"></script>
+
+</body>
+</html>
