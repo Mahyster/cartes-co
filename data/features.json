@@ -1,0 +1,16 @@
+[
+  {
+    "id": "pont-w",
+    "name": "Pont W",
+    "type": "pont",
+    "typeLabel": "Pont",
+    "architectureType": "Infrastructure de franchissement",
+    "description": "Pont reliant l'île principale et l'île du parlement",
+    "shape": "line",
+    "thickness": 30,
+    "points": [
+      { "xPercent": 39.77, "yPercent": 41.44 },
+      { "xPercent": 18.06, "yPercent": 49.46 }
+    ]
+  }
+]
